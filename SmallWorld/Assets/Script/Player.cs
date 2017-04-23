@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.SceneManagement;
+
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
@@ -32,9 +34,14 @@ public class Player : MonoBehaviour {
 	void OnTriggerEnter(Collider colision)
 	{
 		print("stepped on " +colision.gameObject.name);
-		if (colision.gameObject.name == "home" && carrying!="nothing" && carrying!="home") {
+		if (colision.gameObject.name == "home") {
+
+			if(carrying!="nothing" && carrying!="home"){
 			Arrived (carrying);
+
+			}
 			carrying = "nothing";		
+
 		}else  {			
 			carrying = colision.gameObject.name;
 		}
@@ -66,8 +73,8 @@ public class Player : MonoBehaviour {
 			stepper = 0;
 		}
 	}
-
-	private int agriculture, construction, society,aMul,cMul,sMul,rock,wood,seed,horse,spice,paper,gold;
+	public static int agriculture, construction, society;
+	private int aMul,cMul,sMul,rock,wood,seed,horse,spice,paper,gold;
 
 	public Text agricultureText, constructionText, societyText;
 
@@ -78,36 +85,43 @@ public class Player : MonoBehaviour {
 
 			   if (item == "rock") {
 			rock++;
+
 			cMul++;					//Construction
 
 		} else if (item == "wood") {
 			wood++;
-			cMul+=++rock;					//Construction
+
+			cMul+=(1+rock);					//Construction
 
 		} else if (item == "horse") {
 			horse++;
-			cMul++;					//Construction
-			aMul++;					//Agriculture
+
+			cMul+=(1+wood);					//Construction
+			aMul+=(1+spice);					//Agriculture
 
 
 		} else if (item == "seed") {
 			seed++;
+
 			aMul++;					//Agriculture
 
 
 		} else if (item == "spice") {
 			spice++;
-			aMul++;					//Agriculture
+
+			aMul += (1 + seed);					//Agriculture
 
 
 
 
 		} else if (item == "paper") {
 			paper++;
-			sMul++;					//Society
+
+			sMul+=(2+gold);					//Society
 		} else if (item == "gold") {
 			gold++;
-			sMul++;					//Society
+
+			sMul+=(1+2*paper);					//Society
 
 
 		}
@@ -115,8 +129,8 @@ public class Player : MonoBehaviour {
 
 	}
 
+	public void Die(){
+		SceneManager.LoadScene("Over");
 
-	//			GameObject.Find ("Player").SendMessage ("Damage");
-	//			Damage ();
-
+	}
 }

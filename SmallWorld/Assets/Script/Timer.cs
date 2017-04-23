@@ -29,7 +29,9 @@ public class Timer : MonoBehaviour {
 
 	void Finish(){
 	
-		print ("end");
+		GameObject.Find ("caravel").SendMessage ("Die");
+		print ("dead");
+
 
 	}
 }

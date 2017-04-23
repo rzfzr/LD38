@@ -15,9 +15,9 @@ public class Compass : MonoBehaviour {
 
 
 		if (i < 100) {
-			transform.Rotate (0, 0, 60 * Time.deltaTime);
-		}else if(i<200){
-			transform.Rotate (0, 0, -40 * Time.deltaTime);	
+			transform.Rotate (0, 0, 30 * Time.deltaTime);
+		}else if(i<300){
+			transform.Rotate (0, 0, -60 * Time.deltaTime);	
 		} else {
 			i = 0;
 		}
