@@ -10,5 +10,5 @@ Source : github.com/rzfzr/LD38 (I’ll add alot of details to the readme soon)
 
 I had the idea, wrote all the code, modeled everything in SketchUp and the globe is the one from the announcing tweet. I’m entering it as Jam instead of Compo just because I don’t think it is polished enough.
 
-![alt tag](https://github.com/rzfzr/LD38/blob/master/1.gif)
 ![alt tag](https://github.com/rzfzr/LD38/blob/master/2.gif)
+![alt tag](https://github.com/rzfzr/LD38/blob/master/1.gif)
